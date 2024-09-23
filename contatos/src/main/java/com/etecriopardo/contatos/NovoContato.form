@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="categoriaGrupo">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -217,6 +221,9 @@
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="rbtAmigo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrupo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Amigo(a)"/>
               </Properties>
               <Events>
@@ -225,11 +232,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtFamilia">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrupo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fam&#xed;lia"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtTrabalho">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="categoriaGrupo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Trabalho"/>
               </Properties>
             </Component>
@@ -265,17 +278,14 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btAdicionar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Etec\Pictures\add.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Adicionar "/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAdicionarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btSair">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Etec\Pictures\door_exit.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[99, 25]"/>

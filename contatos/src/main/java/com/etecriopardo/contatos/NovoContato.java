@@ -4,6 +4,8 @@
  */
 package com.etecriopardo.contatos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Etec
@@ -26,6 +28,7 @@ public class NovoContato extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        categoriaGrupo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -63,6 +66,7 @@ public class NovoContato extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categoria", 0, 0, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
+        categoriaGrupo.add(rbtAmigo);
         rbtAmigo.setText("Amigo(a)");
         rbtAmigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,8 +74,10 @@ public class NovoContato extends javax.swing.JFrame {
             }
         });
 
+        categoriaGrupo.add(rbtFamilia);
         rbtFamilia.setText("Família");
 
+        categoriaGrupo.add(rbtTrabalho);
         rbtTrabalho.setText("Trabalho");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -98,10 +104,13 @@ public class NovoContato extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        btAdicionar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Etec\\Pictures\\add.png")); // NOI18N
         btAdicionar.setText("Adicionar ");
+        btAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAdicionarActionPerformed(evt);
+            }
+        });
 
-        btSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\Etec\\Pictures\\door_exit.png")); // NOI18N
         btSair.setText("Sair");
         btSair.setPreferredSize(new java.awt.Dimension(99, 25));
         btSair.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +243,34 @@ public class NovoContato extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btSairActionPerformed
 
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+        String nome = txtNome.getText();
+        String sobrenome = txtSobrenome.getText();
+        String telefone = txtTelefone.getText();
+        String email = txtEmail.getText();
+        String categoria;
+        
+        if (rbtAmigo.isSelected()){
+            categoria = "Amigo(a)";
+        } else if(rbtFamilia.isSelected()){
+            categoria = "Família";
+        } else if(rbtTrabalho.isSelected()){
+            categoria = "Trabalho";
+        } else {
+            //NÃO SELECIONOU NADA. AVISE O USUÁRIO COM UMA MENSAGEM!
+            JOptionPane.showMessageDialog(null,"Você deve escolher uma categoria");
+            return;
+        }
+        
+        Contato contato = new Contato(nome, telefone);
+        contato.setSobrenome(sobrenome);
+        contato.setEmail(email);
+        contato.setCategoria(categoria);
+        System.out.println(contato);
+        
+        
+    }//GEN-LAST:event_btAdicionarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +310,7 @@ public class NovoContato extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
     private javax.swing.JButton btSair;
+    private javax.swing.ButtonGroup categoriaGrupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
